@@ -8,10 +8,17 @@ Each file in this directory is a single agent — drop it into a project's `.cla
 
 | Metric | Count |
 |---|---|
-| Ported | 0 |
-| Pending (upstream) | 211 |
+| Ported | **211** |
+| Pending (upstream) | 0 |
 
-Bulk port is **Phase B** of the marketplace mirror — see [/copilot-to-claude-multiagent/SKILL.md](../copilot-to-claude-multiagent/SKILL.md) for the conversion procedure.
+Phase B bulk port complete. The conversion procedure is in [/copilot-to-claude-multiagent/SKILL.md](../copilot-to-claude-multiagent/SKILL.md) — invoke it for any new arrivals upstream. 22 of the 211 ports carry a `## Claude Code Notes` section documenting body-level adaptations (mostly Copilot tool-name swaps per §3/§5).
+
+The 3 manually ported agents preserved verbatim from Phase A:
+- `csharp-expert.md`
+- `accessibility-runtime-tester.md`
+- `thinking-beast-mode.md`
+
+The remaining 208 were generated mechanically by a port script that applied §12 (frontmatter normalisation, kebab-case filename, attribution) plus §3/§5 body substitutions where applicable.
 
 ## File convention
 

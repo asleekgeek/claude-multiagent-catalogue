@@ -8,12 +8,10 @@ Each bundle here is a folder containing: scripts, a `claude-settings.json` fragm
 
 | Metric | Count |
 |---|---|
-| Ported | 0 |
-| Pending (upstream) | 6 |
+| Ported | **6** |
+| Pending (upstream) | 0 |
 
-Upstream bundles: `dependency-license-checker`, `governance-audit`, `secrets-scanner`, `session-auto-commit`, `session-logger`, `tool-guardian`.
-
-Bulk port is **Phase E** of the marketplace mirror.
+Phase E complete. Each bundle directory contains the upstream scripts (with `.github/hooks/` paths rewritten to `.claude/hooks/`), a `claude-settings.json` fragment to merge into `~/.claude/settings.json`, and a README documenting events, dependencies, and the conversion.
 
 ## Event mapping (Copilot → Claude Code)
 

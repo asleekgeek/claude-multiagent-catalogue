@@ -10,13 +10,13 @@ Every artefact is a markdown agent definition, `SKILL.md`, instructions file, ho
 
 | Bucket | Path | Status | Upstream |
 |---|---|---|---|
-| 🤖 [Agents](agents/) | `agents/` | 0 / 211 | `awesome-copilot/agents/` |
-| 📋 [Instructions](instructions/) | `instructions/` | 0 / 183 | `awesome-copilot/instructions/` |
+| 🤖 [Agents](agents/) | `agents/` | **211 / 211** | `awesome-copilot/agents/` |
+| 📋 [Instructions](instructions/) | `instructions/` | **183 / 183** | `awesome-copilot/instructions/` |
 | 🎯 [Skills](skills/) | `skills/` | 335 / 338 | `awesome-copilot/skills/` |
-| 🔌 [Plugins](plugins/) | `plugins/` | 5 / 67 | `awesome-copilot/plugins/` |
-| 🪝 [Hooks](hooks/) | `hooks/` | 0 / 6 | `awesome-copilot/hooks/` |
-| ⚡ [Workflows](workflows/) | `workflows/` | 0 / 8 | `awesome-copilot/workflows/` |
-| 🍳 [Cookbook](cookbook/) | `cookbook/` | 0 / 3 | `awesome-copilot/cookbook/` |
+| 🔌 [Plugins](plugins/) | `plugins/` | **67 / 67** | `awesome-copilot/plugins/` |
+| 🪝 [Hooks](hooks/) | `hooks/` | **6 / 6** | `awesome-copilot/hooks/` |
+| ⚡ [Workflows](workflows/) | `workflows/` | **8 / 8** | `awesome-copilot/workflows/` |
+| 🍳 [Cookbook](cookbook/) | `cookbook/` | **7 / 10** (3 skipped-with-reason) | `awesome-copilot/cookbook/` |
 | 🛠️ [Conversion skill](copilot-to-claude-multiagent/) | `copilot-to-claude-multiagent/` | — | (this repo) |
 
 The conversion procedure for every bucket lives in [copilot-to-claude-multiagent/SKILL.md](copilot-to-claude-multiagent/SKILL.md).
@@ -53,6 +53,10 @@ Agents land in `.claude/agents/`, skills in `.claude/skills/`, instructions in `
 
 ## Plugins (currently populated)
 
+All 67 upstream plugins are mirrored — 5 multi-agent orchestration rigs (full detailed entries in [CATALOGUE.md](CATALOGUE.md)) plus 62 topic bundles (languages, clouds, SaaS platforms, tools).
+
+The 5 multi-agent rigs:
+
 | Plugin | Pattern | Components |
 |---|---|---|
 | [rug-agentic-workflow](plugins/rug-agentic-workflow/) | Orchestrator + SWE + QA subagents via the `Task` tool (RUG — Repeat Until Good) | agents |
@@ -60,6 +64,8 @@ Agents land in `.claude/agents/`, skills in `.claude/skills/`, instructions in `
 | [software-engineering-team](plugins/software-engineering-team/) | Pool of 7 SDLC reviewer specialists (architect, security, devops, PM, tech writer, UX, responsible-AI) | agents |
 | [structured-autonomy](plugins/structured-autonomy/) | Plan → Generate → Implement skill pipeline with checkpoints between commits | skills |
 | [quality-playbook](plugins/quality-playbook/) | 7-phase quality engineering audit; orchestrator spawns one Task sub-agent per phase | agents + skill |
+
+The 62 topic bundles cover languages (.NET, TypeScript, Python, JVM, Rust, Go, Swift, etc.), clouds (Azure, AWS), SaaS platforms (Salesforce, Power Platform, Sitecore, Drupal), database admin, CI/CD, testing, security, and AI/ML tooling. See [CATALOGUE.md → Topic bundles](CATALOGUE.md#topic-bundles) for the full table or `./install.sh --list` for a live listing.
 
 Full plugin entries — orchestration flow, agent rosters with model assignments, install notes — live in [CATALOGUE.md](CATALOGUE.md).
 

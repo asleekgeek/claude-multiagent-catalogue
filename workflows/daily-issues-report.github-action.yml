@@ -1,0 +1,28 @@
+# Companion GitHub Actions runner for workflows/daily-issues-report.md
+# Copy to .github/workflows/daily-issues-report.yml in the consumer's repo and adapt
+# schedule / secrets / permissions as needed. Add ANTHROPIC_API_KEY to repo secrets.
+
+name: Daily Issues Report
+
+on:
+  schedule:
+    - cron: "0 9 * * 1-5"   # translated from upstream: "daily on weekdays"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Claude Code agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt-file: .github/workflows-prompts/daily-issues-report.md
+          allowed-tools: bash,gh
+          model: claude-sonnet-4-6

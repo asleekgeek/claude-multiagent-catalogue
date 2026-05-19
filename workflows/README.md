@@ -6,12 +6,10 @@ Agentic GitHub Actions workflows ported from the [`awesome-copilot`](https://git
 
 | Metric | Count |
 |---|---|
-| Ported | 0 |
-| Pending (upstream) | 8 |
+| Ported | **8** |
+| Pending (upstream) | 0 |
 
-Upstream entries: `daily-issues-report`, `ospo-contributors-report`, `ospo-org-health`, `ospo-release-compliance-checker`, `ospo-stale-repos`, `relevance-check`, `relevance-summary`, `weekly-comment-sync`.
-
-Bulk port is **Phase E** of the marketplace mirror.
+Phase E complete. Each workflow ships as a `.md` prompt + a companion `.github-action.yml` runner template invoking `anthropics/claude-code-action` on the upstream schedule. The runners are templates — copy to your repo's `.github/workflows/` and adapt secrets / permissions.
 
 ## How an agentic workflow is structured
 
