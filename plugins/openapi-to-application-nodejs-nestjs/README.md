@@ -21,7 +21,7 @@ Generate production-ready NestJS applications from OpenAPI specifications. Inclu
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh openapi-to-application-nodejs-nestjs --skills
+/path/to/claude-multiagent-catalogue/install.sh openapi-to-application-nodejs-nestjs --skills
 
 # verify
 ls .claude/agents/

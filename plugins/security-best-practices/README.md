@@ -15,7 +15,7 @@ Security frameworks, accessibility guidelines, performance optimization, and cod
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh security-best-practices --skills
+/path/to/claude-multiagent-catalogue/install.sh security-best-practices --skills
 
 # verify
 ls .claude/skills/

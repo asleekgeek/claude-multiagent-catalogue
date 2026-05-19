@@ -23,7 +23,7 @@ Comprehensive collection for building declarative agents with Model Context Prot
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh mcp-m365-copilot --skills
+/path/to/claude-multiagent-catalogue/install.sh mcp-m365-copilot --skills
 
 # verify
 ls .claude/agents/

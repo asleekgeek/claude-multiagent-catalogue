@@ -15,7 +15,7 @@ This plugin is for network operations engineers who wish to tune and publish IP 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh fastah-ip-geo-tools --skills
+/path/to/claude-multiagent-catalogue/install.sh fastah-ip-geo-tools --skills
 
 # verify
 ls .claude/skills/

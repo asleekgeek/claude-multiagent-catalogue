@@ -21,7 +21,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in Python usi
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh python-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh python-mcp-development --skills
 
 # verify
 ls .claude/agents/

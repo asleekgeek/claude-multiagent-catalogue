@@ -39,7 +39,7 @@ hooks/<bundle-name>/
 ## Install one
 
 ```bash
-~/src/claude-multiagent-catalogue/install.sh install-hook <name>
+/path/to/claude-multiagent-catalogue/install.sh install-hook <name>
 ```
 
 The installer copies scripts into `.claude/hooks/<bundle-name>/` and prints the `claude-settings.json` fragment so the user can merge it deliberately — it never blind-overwrites `settings.json`.

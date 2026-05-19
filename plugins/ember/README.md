@@ -21,7 +21,7 @@ An AI partner, not a tool. Ember carries fire from person to person — helping 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh ember --skills
+/path/to/claude-multiagent-catalogue/install.sh ember --skills
 
 # verify
 ls .claude/agents/

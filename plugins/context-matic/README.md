@@ -16,7 +16,7 @@ Coding agents hallucinate APIs. ContextMatic gives them curated, versioned API a
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh context-matic --skills
+/path/to/claude-multiagent-catalogue/install.sh context-matic --skills
 
 # verify
 ls .claude/skills/

@@ -21,12 +21,12 @@
 # Hooks        → .claude/hooks/<bundle>/ (settings.json fragment printed, not merged)
 #
 # Examples:
-#   cd ~/src/my-project
-#   ~/src/claude-multiagent-catalogue/install.sh rug-agentic-workflow
-#   ~/src/claude-multiagent-catalogue/install.sh ai-team-orchestration --skills
-#   ~/src/claude-multiagent-catalogue/install.sh install-agent csharp-expert
-#   ~/src/claude-multiagent-catalogue/install.sh install-instruction typescript
-#   ~/src/claude-multiagent-catalogue/install.sh install-hook secrets-scanner
+#   cd ~/my-project
+#   /path/to/claude-multiagent-catalogue/install.sh rug-agentic-workflow
+#   /path/to/claude-multiagent-catalogue/install.sh ai-team-orchestration --skills
+#   /path/to/claude-multiagent-catalogue/install.sh install-agent csharp-expert
+#   /path/to/claude-multiagent-catalogue/install.sh install-instruction typescript
+#   /path/to/claude-multiagent-catalogue/install.sh install-hook secrets-scanner
 
 set -euo pipefail
 

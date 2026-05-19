@@ -15,7 +15,7 @@ Plain-English translation layer for non-technical Copilot CLI users. Translates 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh noob-mode --skills
+/path/to/claude-multiagent-catalogue/install.sh noob-mode --skills
 
 # verify
 ls .claude/skills/

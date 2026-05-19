@@ -13,7 +13,7 @@ Tools and resources for Open Source Program Offices (OSPOs) to identify, evaluat
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh ospo-sponsorship --skills
+/path/to/claude-multiagent-catalogue/install.sh ospo-sponsorship --skills
 
 # verify
 ls .claude/skills/

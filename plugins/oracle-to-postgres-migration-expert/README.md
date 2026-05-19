@@ -27,7 +27,7 @@ Expert agent for Oracle-to-PostgreSQL application migrations in .NET solutions. 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh oracle-to-postgres-migration-expert --skills
+/path/to/claude-multiagent-catalogue/install.sh oracle-to-postgres-migration-expert --skills
 
 # verify
 ls .claude/agents/

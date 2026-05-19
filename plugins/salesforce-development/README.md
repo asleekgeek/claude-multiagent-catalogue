@@ -26,7 +26,7 @@ Complete Salesforce agentic development environment covering Apex & Triggers, Fl
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh salesforce-development --skills
+/path/to/claude-multiagent-catalogue/install.sh salesforce-development --skills
 
 # verify
 ls .claude/agents/

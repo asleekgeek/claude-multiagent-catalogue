@@ -17,7 +17,7 @@ Skills for CMS development across themes, plugins, admin tooling, media workflow
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh cms-development --skills
+/path/to/claude-multiagent-catalogue/install.sh cms-development --skills
 
 # verify
 ls .claude/skills/

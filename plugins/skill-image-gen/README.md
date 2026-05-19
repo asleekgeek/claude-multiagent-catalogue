@@ -15,7 +15,7 @@ Generate images using AI directly from your coding workflow. Supports OpenAI (gp
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh skill-image-gen --skills
+/path/to/claude-multiagent-catalogue/install.sh skill-image-gen --skills
 
 # verify
 ls .claude/skills/

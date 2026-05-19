@@ -22,7 +22,7 @@ Complete toolkit for developing Power Platform custom connectors with Model Cont
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh power-platform-mcp-connector-development --skills
+/path/to/claude-multiagent-catalogue/install.sh power-platform-mcp-connector-development --skills
 
 # verify
 ls .claude/agents/

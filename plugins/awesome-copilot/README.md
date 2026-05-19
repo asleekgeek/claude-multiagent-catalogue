@@ -23,7 +23,7 @@ Meta prompts that help you discover and generate curated GitHub Copilot agents, 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh awesome-copilot --skills
+/path/to/claude-multiagent-catalogue/install.sh awesome-copilot --skills
 
 # verify
 ls .claude/agents/

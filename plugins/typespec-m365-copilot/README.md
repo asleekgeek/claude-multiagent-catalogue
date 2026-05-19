@@ -17,7 +17,7 @@ Comprehensive collection of prompts, instructions, and resources for building de
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh typespec-m365-copilot --skills
+/path/to/claude-multiagent-catalogue/install.sh typespec-m365-copilot --skills
 
 # verify
 ls .claude/skills/

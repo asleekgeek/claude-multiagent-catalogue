@@ -15,7 +15,7 @@ Build applications with the GitHub Copilot SDK across multiple programming langu
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh copilot-sdk --skills
+/path/to/claude-multiagent-catalogue/install.sh copilot-sdk --skills
 
 # verify
 ls .claude/skills/

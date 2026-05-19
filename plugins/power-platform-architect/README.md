@@ -15,7 +15,7 @@ Solution Architect for the Microsoft Power Platform, turning business requiremen
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh power-platform-architect --skills
+/path/to/claude-multiagent-catalogue/install.sh power-platform-architect --skills
 
 # verify
 ls .claude/skills/

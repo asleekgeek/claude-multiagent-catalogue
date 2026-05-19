@@ -21,7 +21,7 @@ Generate production-ready .NET applications from OpenAPI specifications. Include
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh openapi-to-application-csharp-dotnet --skills
+/path/to/claude-multiagent-catalogue/install.sh openapi-to-application-csharp-dotnet --skills
 
 # verify
 ls .claude/agents/

@@ -32,7 +32,7 @@ Converts any artefact from a GitHub Copilot marketplace (`awesome-copilot` or a 
 ## Assumed Local Context
 
 ```
-~/src/awesome-copilot/                ← upstream marketplace
+/path/to/awesome-copilot/                ← upstream marketplace
   .github/plugin/marketplace.json
   agents/<name>.agent.md              ← standalone agents (Phase B)
   instructions/<name>.instructions.md ← coding standards (Phase D)
@@ -52,7 +52,7 @@ Converts any artefact from a GitHub Copilot marketplace (`awesome-copilot` or a 
 Output lands at this repo's matching top-level directory:
 
 ```
-~/src/claude-multiagent-catalogue/
+/path/to/claude-multiagent-catalogue/
   agents/<name>.md
   instructions/<name>.md
   plugins/<plugin-name>/{agents,skills,instructions,plugin.json,README.md}
@@ -90,7 +90,7 @@ The remaining phases describe the plugin-bundle pipeline (which is the most invo
 
 ```bash
 PLUGIN=$1   # plugin name, e.g. rug-agentic-workflow
-ROOT=~/src/awesome-copilot/plugins/$PLUGIN
+ROOT=/path/to/awesome-copilot/plugins/$PLUGIN
 
 # Read manifest
 cat $ROOT/.github/plugin/plugin.json
@@ -221,7 +221,7 @@ See `references/conversion-patterns.md §13` for the full pattern.
 
 ```bash
 # Check if the plugin has its own Claude Code support
-cat ~/src/awesome-copilot/plugins/<name>/.github/plugin/plugin.json | jq '.repository'
+cat /path/to/awesome-copilot/plugins/<name>/.github/plugin/plugin.json | jq '.repository'
 # Then web_fetch the README from GitHub
 ```
 
@@ -431,19 +431,19 @@ Each ported artefact must also bump the corresponding bucket `README.md`'s statu
 To discover all multi-agent candidates in the marketplace:
 
 ```bash
-cat ~/src/awesome-copilot/.github/plugin/marketplace.json \
+cat /path/to/awesome-copilot/.github/plugin/marketplace.json \
   | jq -r '.plugins[] | select(.description | test("agent|orchestrat|team|subagent|workflow"; "i")) | .name'
 ```
 
 To list every upstream artefact for bulk porting:
 
 ```bash
-ls ~/src/awesome-copilot/agents/        # 211 standalone agents (Phase B)
-ls ~/src/awesome-copilot/instructions/  # 183 instructions     (Phase D)
-ls ~/src/awesome-copilot/plugins/       # 67 plugin bundles    (Phase C)
-ls ~/src/awesome-copilot/hooks/         # 6 hook bundles       (Phase E)
-ls ~/src/awesome-copilot/workflows/     # 8 workflows          (Phase E)
-ls ~/src/awesome-copilot/cookbook/      # 3 recipe sets        (Phase E)
+ls /path/to/awesome-copilot/agents/        # 211 standalone agents (Phase B)
+ls /path/to/awesome-copilot/instructions/  # 183 instructions     (Phase D)
+ls /path/to/awesome-copilot/plugins/       # 67 plugin bundles    (Phase C)
+ls /path/to/awesome-copilot/hooks/         # 6 hook bundles       (Phase E)
+ls /path/to/awesome-copilot/workflows/     # 8 workflows          (Phase E)
+ls /path/to/awesome-copilot/cookbook/      # 3 recipe sets        (Phase E)
 ```
 
 For batch conversion: run the full Phase 0 → Phase 4 workflow for each artefact in sequence. After the batch, generate a summary report grouping artefacts by type and bucket.

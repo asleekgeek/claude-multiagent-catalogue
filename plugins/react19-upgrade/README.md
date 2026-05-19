@@ -27,7 +27,7 @@ Enterprise React 19 migration toolkit with specialized agents and skills for upg
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh react19-upgrade --skills
+/path/to/claude-multiagent-catalogue/install.sh react19-upgrade --skills
 
 # verify
 ls .claude/agents/

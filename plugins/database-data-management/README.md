@@ -25,7 +25,7 @@ Database administration, SQL optimization, and data management tools for Postgre
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh database-data-management --skills
+/path/to/claude-multiagent-catalogue/install.sh database-data-management --skills
 
 # verify
 ls .claude/agents/

@@ -50,7 +50,7 @@ and rewrote three `#tool:fetch` references to point at the Claude Code `WebFetch
 ```bash
 # Copy a single skill into the active project's .claude/ tree
 mkdir -p .claude/skills
-cp -r ~/src/claude-multiagent-catalogue/skills/<skill-name> .claude/skills/
+cp -r /path/to/claude-multiagent-catalogue/skills/<skill-name> .claude/skills/
 ```
 
 `install.sh` does **not** read this pool — only `plugins/&lt;name&gt;/skills/` are

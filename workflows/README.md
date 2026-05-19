@@ -52,8 +52,8 @@ The `.github-action.yml` template is documented but **not** auto-installed — u
 There is no `install.sh` shortcut. Workflows are project-specific; copy by hand:
 
 ```bash
-cp ~/src/claude-multiagent-catalogue/workflows/<name>.md ./.github/workflows/<name>.prompt.md
-cp ~/src/claude-multiagent-catalogue/workflows/<name>.github-action.yml ./.github/workflows/<name>.yml
+cp /path/to/claude-multiagent-catalogue/workflows/<name>.md ./.github/workflows/<name>.prompt.md
+cp /path/to/claude-multiagent-catalogue/workflows/<name>.github-action.yml ./.github/workflows/<name>.yml
 ```
 
 Then edit the YAML to match your secrets, schedule, and target repo.

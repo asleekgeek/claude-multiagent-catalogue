@@ -21,7 +21,7 @@ Tools for REPL-first Clojure workflows featuring Clojure instructions, the inter
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh clojure-interactive-programming --skills
+/path/to/claude-multiagent-catalogue/install.sh clojure-interactive-programming --skills
 
 # verify
 ls .claude/agents/

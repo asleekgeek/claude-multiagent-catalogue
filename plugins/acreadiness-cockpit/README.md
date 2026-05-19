@@ -23,7 +23,7 @@ Drive Microsoft AgentRC from Copilot chat: assess AI readiness, generate Copilot
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh acreadiness-cockpit --skills
+/path/to/claude-multiagent-catalogue/install.sh acreadiness-cockpit --skills
 
 # verify
 ls .claude/agents/

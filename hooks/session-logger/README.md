@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-~/src/claude-multiagent-catalogue/install.sh install-hook session-logger
+/path/to/claude-multiagent-catalogue/install.sh install-hook session-logger
 ```
 
 The installer copies the scripts into `.claude/hooks/session-logger/` and **prints** the `claude-settings.json` fragment below for you to merge into your `~/.claude/settings.json` deliberately — it does NOT auto-merge (hook commands execute on session events; silent overwrite is too dangerous).

@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-~/src/claude-multiagent-catalogue/install.sh install-hook governance-audit
+/path/to/claude-multiagent-catalogue/install.sh install-hook governance-audit
 ```
 
 The installer copies the scripts into `.claude/hooks/governance-audit/` and **prints** the `claude-settings.json` fragment below for you to merge into your `~/.claude/settings.json` deliberately — it does NOT auto-merge (hook commands execute on session events; silent overwrite is too dangerous).

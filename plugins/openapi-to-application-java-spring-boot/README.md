@@ -21,7 +21,7 @@ Generate production-ready Spring Boot applications from OpenAPI specifications. 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh openapi-to-application-java-spring-boot --skills
+/path/to/claude-multiagent-catalogue/install.sh openapi-to-application-java-spring-boot --skills
 
 # verify
 ls .claude/agents/
