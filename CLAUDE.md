@@ -63,8 +63,8 @@ README.md                     Repo-level README (catalogue overview + quickstart
 | Bucket | Ported | Upstream | Phase |
 |---|---|---|---|
 | Agents | **211** | 211 | Phase B (complete) |
-| Instructions | 0 | 183 | **Phase D** — next priority |
-| Plugins | 5 | 67 | Phase C |
+| Instructions | **183** | 183 | Phase D (complete) |
+| Plugins | 5 | 67 | **Phase C** — next priority |
 | Skills | 335 | 338 | (already complete) |
 | Hooks | 0 | 6 | Phase E |
 | Workflows | 0 | 8 | Phase E |
