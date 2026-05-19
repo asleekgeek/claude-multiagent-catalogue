@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/dependency-license-checker/check-licenses.sh",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  },
+  "env": {
+    "LICENSE_MODE": "warn"
+  }
+}

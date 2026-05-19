@@ -6,10 +6,11 @@ Recipes for working with the Anthropic / Claude Code SDK — direct analogues of
 
 | Metric | Count |
 |---|---|
-| Ported | 0 |
-| Pending (upstream) | 3 (recipe sets across .NET, Node.js, Python) |
+| Ported (as docs) | **7** |
+| Skipped (with reason) | 3 |
+| Pending (upstream) | 0 |
 
-Bulk port is **Phase E** of the marketplace mirror.
+Phase E complete. Per §16 these are documentation-only recipes: each `<recipe>/README.md` states the problem, points at the canonical Claude Code / Anthropic SDK approach, and links to live docs. No code is checked in — generating Anthropic SDK code from these prompts is what the `claude-api` skill is for.
 
 ## Why this isn't a 1-to-1 port
 

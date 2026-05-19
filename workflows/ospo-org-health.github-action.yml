@@ -1,0 +1,30 @@
+# Companion GitHub Actions runner for workflows/ospo-org-health.md
+# Copy to .github/workflows/ospo-org-health.yml in the consumer's repo and adapt
+# schedule / secrets / permissions as needed. Add ANTHROPIC_API_KEY to repo secrets.
+
+name: OSPO Organization Health Report
+
+on:
+  schedule:
+    - cron: "0 10 * * 1"   # translated from upstream: "0 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+  actions: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Claude Code agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt-file: .github/workflows-prompts/ospo-org-health.md
+          allowed-tools: bash,gh
+          model: claude-sonnet-4-6

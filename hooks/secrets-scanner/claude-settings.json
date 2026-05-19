@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/secrets-scanner/scan-secrets.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  },
+  "env": {
+    "SCAN_MODE": "warn",
+    "SCAN_SCOPE": "diff"
+  }
+}

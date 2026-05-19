@@ -66,9 +66,11 @@ README.md                     Repo-level README (catalogue overview + quickstart
 | Instructions | **183** | 183 | Phase D (complete) |
 | Plugins | **67** | 67 | Phase C (complete) |
 | Skills | 335 | 338 | (already complete) |
-| Hooks | 0 | 6 | **Phase E** — last remaining |
-| Workflows | 0 | 8 | Phase E |
-| Cookbook | 0 | 3 | Phase E |
+| Hooks | **6** | 6 | Phase E (complete) |
+| Workflows | **8** | 8 | Phase E (complete) |
+| Cookbook | **7** | 10 | Phase E (complete; 3 skipped per §16) |
+
+**Full marketplace mirror complete.** Every upstream artefact type has a corresponding Claude Code-native home. The 3 skipped cookbook recipes (`community-samples`, `copilot-sdk-web-app`, `nodejs-agentic-issue-resolver`) are intentionally not ported per §16's case-by-case framework — they target the Copilot SDK with no clean Anthropic SDK analog.
 
 ### Plugins currently in `plugins/`
 
