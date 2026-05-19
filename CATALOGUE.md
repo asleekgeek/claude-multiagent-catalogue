@@ -187,6 +187,85 @@ Best suited for: codebases that need a rigorous quality pass before release, or 
 install.sh quality-playbook --skills
 ```
 
+### Topic bundles
+
+The 5 detailed entries above are the multi-agent orchestration rigs ported in Phase A. The 62 entries below are domain bundles (languages, clouds, SaaS platforms, tools) ported in Phase C — each pairs upstream-curated agents with their related skills around a topic. Browse the per-plugin `README.md` for orchestration notes if any.
+
+_Currently populated: 67 / 67 upstream (60 local Phase C + 2 external + 5 Phase A)._
+
+| Plugin | Agents | Skills | Description |
+|---|---|---|---|
+| [acreadiness-cockpit](plugins/acreadiness-cockpit/) | 1 | 3 | Drive Microsoft AgentRC from Copilot chat: assess AI readiness, generate Copilot instructions (fl… |
+| [arize-ax](plugins/arize-ax/) | 0 | 9 | Arize AX platform skills for LLM observability, evaluation, and optimization. Includes trace expo… |
+| [automate-this](plugins/automate-this/) | 0 | 1 | Record your screen doing a manual process, drop the video on your Desktop, and let Copilot CLI an… |
+| [awesome-copilot](plugins/awesome-copilot/) | 1 | 3 | Meta prompts that help you discover and generate curated GitHub Copilot agents, instructions, pro… |
+| [azure-cloud-development](plugins/azure-cloud-development/) | 7 | 4 | Comprehensive Azure cloud development tools including Infrastructure as Code, serverless function… |
+| [cast-imaging](plugins/cast-imaging/) | 3 | 0 | A comprehensive collection of specialized agents for software analysis, impact assessment, struct… |
+| [clojure-interactive-programming](plugins/clojure-interactive-programming/) | 1 | 1 | Tools for REPL-first Clojure workflows featuring Clojure instructions, the interactive programmin… |
+| [cms-development](plugins/cms-development/) | 0 | 3 | Skills for CMS development across themes, plugins, admin tooling, media workflows, markdown rende… |
+| [context-engineering](plugins/context-engineering/) | 1 | 3 | Tools and techniques for maximizing GitHub Copilot effectiveness through better context managemen… |
+| [context-matic](plugins/context-matic/) | 0 | 2 | Coding agents hallucinate APIs. ContextMatic gives them curated, versioned API and SDK docs. Ask… |
+| [copilot-sdk](plugins/copilot-sdk/) | 0 | 1 | Build applications with the GitHub Copilot SDK across multiple programming languages. Includes co… |
+| [csharp-dotnet-development](plugins/csharp-dotnet-development/) | 1 | 8 | Essential prompts, instructions, and chat modes for C# and .NET development including testing, do… |
+| [database-data-management](plugins/database-data-management/) | 2 | 4 | Database administration, SQL optimization, and data management tools for PostgreSQL, SQL Server,… |
+| [dataverse-sdk-for-python](plugins/dataverse-sdk-for-python/) | 0 | 4 | Comprehensive collection for building production-ready Python integrations with Microsoft Dataver… |
+| [devops-oncall](plugins/devops-oncall/) | 1 | 2 | A focused set of prompts, instructions, and a chat mode to help triage incidents and respond quic… |
+| [doublecheck](plugins/doublecheck/) | 1 | 1 | Three-layer verification pipeline for AI output. Extracts claims, finds sources, and flags halluc… |
+| [edge-ai-tasks](plugins/edge-ai-tasks/) | 2 | 0 | Task Researcher and Task Planner for intermediate to expert users and large codebases - Brought t… |
+| [ember](plugins/ember/) | 1 | 1 | An AI partner, not a tool. Ember carries fire from person to person — helping humans discover tha… |
+| [eyeball](plugins/eyeball/) | 0 | 1 | Document analysis with inline source screenshots. When you ask Copilot to analyze a document, Eye… |
+| [fastah-ip-geo-tools](plugins/fastah-ip-geo-tools/) | 0 | 1 | This plugin is for network operations engineers who wish to tune and publish IP geolocation feeds… |
+| [flowstudio-power-automate](plugins/flowstudio-power-automate/) | 0 | 5 | Give your AI agent full visibility into Power Automate cloud flows via the FlowStudio MCP server.… |
+| [frontend-web-dev](plugins/frontend-web-dev/) | 2 | 2 | Essential prompts, instructions, and chat modes for modern frontend web development including Rea… |
+| [go-mcp-development](plugins/go-mcp-development/) | 1 | 1 | Complete toolkit for building Model Context Protocol (MCP) servers in Go using the official githu… |
+| [java-development](plugins/java-development/) | 0 | 4 | Comprehensive collection of prompts and instructions for Java development including Spring Boot,… |
+| [java-mcp-development](plugins/java-mcp-development/) | 1 | 1 | Complete toolkit for building Model Context Protocol servers in Java using the official MCP Java… |
+| [kotlin-mcp-development](plugins/kotlin-mcp-development/) | 1 | 1 | Complete toolkit for building Model Context Protocol (MCP) servers in Kotlin using the official i… |
+| [mcp-m365-copilot](plugins/mcp-m365-copilot/) | 1 | 3 | Comprehensive collection for building declarative agents with Model Context Protocol integration… |
+| [modernize-java](plugins/modernize-java/) | 1 | 0 | AI-powered Java modernization and upgrade assistant. Helps upgrade Java and Spring Boot applicati… |
+| [napkin](plugins/napkin/) | 0 | 1 | Visual whiteboard collaboration for Copilot CLI. Opens an interactive whiteboard in your browser… |
+| [noob-mode](plugins/noob-mode/) | 0 | 1 | Plain-English translation layer for non-technical Copilot CLI users. Translates every approval pr… |
+| [openapi-to-application-csharp-dotnet](plugins/openapi-to-application-csharp-dotnet/) | 1 | 1 | Generate production-ready .NET applications from OpenAPI specifications. Includes ASP.NET Core pr… |
+| [openapi-to-application-go](plugins/openapi-to-application-go/) | 1 | 1 | Generate production-ready Go applications from OpenAPI specifications. Includes project scaffoldi… |
+| [openapi-to-application-java-spring-boot](plugins/openapi-to-application-java-spring-boot/) | 1 | 1 | Generate production-ready Spring Boot applications from OpenAPI specifications. Includes project… |
+| [openapi-to-application-nodejs-nestjs](plugins/openapi-to-application-nodejs-nestjs/) | 1 | 1 | Generate production-ready NestJS applications from OpenAPI specifications. Includes project scaff… |
+| [openapi-to-application-python-fastapi](plugins/openapi-to-application-python-fastapi/) | 1 | 1 | Generate production-ready FastAPI applications from OpenAPI specifications. Includes project scaf… |
+| [oracle-to-postgres-migration-expert](plugins/oracle-to-postgres-migration-expert/) | 1 | 7 | Expert agent for Oracle-to-PostgreSQL application migrations in .NET solutions. Performs code edi… |
+| [ospo-sponsorship](plugins/ospo-sponsorship/) | 0 | 1 | Tools and resources for Open Source Program Offices (OSPOs) to identify, evaluate, and manage spo… |
+| [partners](plugins/partners/) | 20 | 0 | Custom agents that have been created by GitHub partners |
+| [phoenix](plugins/phoenix/) | 0 | 3 | Phoenix AI observability skills for LLM application debugging, evaluation, and tracing. Includes… |
+| [php-mcp-development](plugins/php-mcp-development/) | 1 | 1 | Comprehensive resources for building Model Context Protocol servers using the official PHP SDK wi… |
+| [power-apps-code-apps](plugins/power-apps-code-apps/) | 1 | 1 | Complete toolkit for Power Apps Code Apps development including project scaffolding, development… |
+| [power-bi-development](plugins/power-bi-development/) | 4 | 4 | Comprehensive Power BI development resources including data modeling, DAX optimization, performan… |
+| [power-platform-architect](plugins/power-platform-architect/) | 0 | 1 | Solution Architect for the Microsoft Power Platform, turning business requirements into functioni… |
+| [power-platform-mcp-connector-development](plugins/power-platform-mcp-connector-development/) | 1 | 2 | Complete toolkit for developing Power Platform custom connectors with Model Context Protocol inte… |
+| [project-documenter](plugins/project-documenter/) | 1 | 2 | Generate professional project documentation with draw.io architecture diagrams and Word (.docx) o… |
+| [project-planning](plugins/project-planning/) | 7 | 8 | Tools and guidance for software project planning, feature breakdown, epic management, implementat… |
+| [python-mcp-development](plugins/python-mcp-development/) | 1 | 1 | Complete toolkit for building Model Context Protocol (MCP) servers in Python using the official S… |
+| [react18-upgrade](plugins/react18-upgrade/) | 6 | 7 | Enterprise React 18 migration toolkit with specialized agents and skills for upgrading React 16/1… |
+| [react19-upgrade](plugins/react19-upgrade/) | 5 | 3 | Enterprise React 19 migration toolkit with specialized agents and skills for upgrading React 18 c… |
+| [roundup](plugins/roundup/) | 0 | 2 | Self-configuring status briefing generator. Learns your communication style from examples, discov… |
+| [ruby-mcp-development](plugins/ruby-mcp-development/) | 1 | 1 | Complete toolkit for building Model Context Protocol servers in Ruby using the official MCP Ruby… |
+| [rust-mcp-development](plugins/rust-mcp-development/) | 1 | 1 | Build high-performance Model Context Protocol servers in Rust using the official rmcp SDK with as… |
+| [salesforce-development](plugins/salesforce-development/) | 4 | 3 | Complete Salesforce agentic development environment covering Apex & Triggers, Flow automation, Li… |
+| [security-best-practices](plugins/security-best-practices/) | 0 | 1 | Security frameworks, accessibility guidelines, performance optimization, and code quality best pr… |
+| [skill-image-gen](plugins/skill-image-gen/) | 0 | 1 | Generate images using AI directly from your coding workflow. Supports OpenAI (gpt-image-2) and Go… |
+| [swift-mcp-development](plugins/swift-mcp-development/) | 1 | 1 | Comprehensive collection for building Model Context Protocol servers in Swift using the official… |
+| [technical-spike](plugins/technical-spike/) | 1 | 1 | Tools for creation, management and research of technical spikes to reduce unknowns and assumption… |
+| [testing-automation](plugins/testing-automation/) | 4 | 5 | Comprehensive collection for writing tests, test automation, and test-driven development includin… |
+| [typescript-mcp-development](plugins/typescript-mcp-development/) | 1 | 1 | Complete toolkit for building Model Context Protocol (MCP) servers in TypeScript/Node.js using th… |
+| [typespec-m365-copilot](plugins/typespec-m365-copilot/) | 0 | 3 | Comprehensive collection of prompts, instructions, and resources for building declarative agents… |
+
+#### External-source plugins
+
+These plugins live in their own repositories — only the manifest is mirrored here so they appear in `install.sh --list` and `CATALOGUE.md`. Install via APM or the Claude Code plugin marketplace per the per-plugin README.
+
+| Plugin | Source | Description |
+|---|---|---|
+| [gem-team](plugins/gem-team/) | https://github.com/mubaidr/gem-team | Self-Learning Multi-agent orchestration harness for spec-driven development and automated verific… |
+| [pcf-development](plugins/pcf-development/) | https://github.com/github/awesome-copilot | Complete toolkit for developing custom code components using Power Apps Component Framework for m… |
+
+
 ---
 
 ## Agents
