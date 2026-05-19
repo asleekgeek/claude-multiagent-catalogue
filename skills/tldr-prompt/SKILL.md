@@ -232,7 +232,7 @@ message from Error Handling section
    - Note if you're in inline chat (Ctrl+I) or chat view context
 3. **Fetch Content**:
    - For files: Read the file(s) using available file tools
-   - For URLs: Fetch content using `#tool:fetch`
+   - For URLs: Fetch content using the `WebFetch` tool
    - For queries: Apply URL Resolver strategy to find and fetch relevant content
 4. **Analyze Content**: Extract the file's/documentation's purpose, key parameters, and primary use
 cases

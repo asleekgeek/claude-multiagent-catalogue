@@ -34,8 +34,8 @@ converted
 
 This prompt can be used with several parameters and options. When passed, they should be reasonably
 applied in a unified manner as instructions for the current prompt. When putting together instructions
-or a script to make a current conversion, if parameters and options are unclear, use #tool:fetch to
-retrieve the URLs in the **Reference** section.
+or a script to make a current conversion, if parameters and options are unclear, use the `WebFetch`
+tool to retrieve the URLs in the **Reference** section.
 
 ```bash
 /convert-plaintext-to-md <#file:{{file}}> [finalize] [guide #file:{{reference-file}}] [instructions] [platform={{name}}] [options] [pre=<name>]
