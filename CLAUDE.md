@@ -45,18 +45,20 @@ To verify an install: `ls .claude/agents/`, `ls .claude/skills/`, `ls .claude/in
 ## Repository layout
 
 ```
-agents/                       Standalone Claude Code agent files (0 / 211 upstream)
-instructions/                 Coding-standard fragments with applyTo metadata (0 / 183 upstream)
-plugins/<plugin-name>/        Installable plugins — agents/ and/or skills/ + README.md (5 / 67 upstream)
-skills/                       Standalone skill pool — ~330+ entries + STATUS.md (335 / 338 upstream)
-hooks/<bundle-name>/          Hook bundles — scripts + claude-settings.json fragment (0 / 6 upstream)
-workflows/                    Agentic GH Actions — <name>.md prompts + .github-action.yml runners (0 / 8 upstream)
-cookbook/                     Anthropic-SDK recipes (0 / 3 upstream)
+agents/                       Standalone Claude Code agent files
+instructions/                 Coding-standard fragments with applyTo metadata
+plugins/<plugin-name>/        Installable plugins — agents/, skills/, instructions/, plugin.json, README.md
+skills/                       Standalone skill pool — ~330+ entries + STATUS.md
+hooks/<bundle-name>/          Hook bundles — scripts + claude-settings.json fragment
+workflows/                    Agentic GH Actions — <name>.md prompts + .github-action.yml runners
+cookbook/                     Translation guides for upstream Copilot-SDK recipes
 copilot-to-claude-multiagent/ The conversion skill itself (SKILL.md + references/)
 install.sh                    Installer (handles every bucket above)
 CATALOGUE.md                  Hand-maintained discovery index — one section per populated bucket
 README.md                     Repo-level README (catalogue overview + quickstart)
 ```
+
+Live counts for each bucket are in the status table above, not in this layout listing — single source of truth.
 
 ### Currently populated buckets
 

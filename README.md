@@ -72,13 +72,13 @@ Full plugin entries — orchestration flow, agent rosters with model assignments
 ## Repository layout
 
 ```
-agents/                       Standalone agents (Phase B target — 0/211)
-instructions/                 Coding-standard fragments (Phase D target — 0/183)
-plugins/<plugin-name>/        Installable plugin (agents/ and/or skills/ + README.md)
+agents/                       Standalone Claude Code agent files
+instructions/                 Coding-standard fragments with applyTo metadata
+plugins/<plugin-name>/        Installable plugin (agents/ and/or skills/ + plugin.json + README.md)
 skills/                       Standalone skill pool — see skills/STATUS.md
-hooks/<bundle-name>/          Hook bundles + claude-settings.json fragments (Phase E target — 0/6)
-workflows/                    Agentic GH Actions workflows (Phase E target — 0/8)
-cookbook/                     Anthropic-SDK recipes (Phase E target — 0/3)
+hooks/<bundle-name>/          Hook bundles + claude-settings.json fragments
+workflows/                    Agentic GH Actions — <name>.md prompts + .github-action.yml runners
+cookbook/                     Translation guides for upstream Copilot-SDK recipes
 copilot-to-claude-multiagent/ Conversion skill (SKILL.md + references/)
 install.sh                    Installer (handles every bucket above)
 CATALOGUE.md                  Discovery index — every populated bucket gets a section
