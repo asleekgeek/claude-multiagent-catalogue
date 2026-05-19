@@ -51,7 +51,7 @@ ls .claude/instructions/
 
 Agents land in `.claude/agents/`, skills in `.claude/skills/`, instructions in `.claude/instructions/`, hook scripts in `.claude/hooks/<bundle>/`. Claude Code discovers agents and skills automatically; instructions and hooks require explicit wiring (see each bucket's README for details).
 
-## Plugins
+## Plugins (currently populated)
 
 All 67 upstream plugins are mirrored — 5 multi-agent orchestration rigs (full detailed entries in [CATALOGUE.md](CATALOGUE.md)) plus 62 topic bundles (languages, clouds, SaaS platforms, tools).
 
