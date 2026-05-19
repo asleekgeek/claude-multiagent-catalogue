@@ -1,0 +1,28 @@
+# Companion GitHub Actions runner for workflows/ospo-stale-repos.md
+# Copy to .github/workflows/ospo-stale-repos.yml in the consumer's repo and adapt
+# schedule / secrets / permissions as needed. Add ANTHROPIC_API_KEY to repo secrets.
+
+name: OSPO Stale Repository Report
+
+on:
+  schedule:
+    - cron: "3 2 1 * *"   # translated from upstream: "3 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Claude Code agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt-file: .github/workflows-prompts/ospo-stale-repos.md
+          allowed-tools: bash,gh
+          model: claude-sonnet-4-6

@@ -794,22 +794,62 @@ _Currently populated: 183 / 183 upstream._
 
 ## Hooks
 
-Hook bundles ported from `awesome-copilot/hooks/`.
+Lifecycle hook bundles ported from `awesome-copilot/hooks/`. Each bundle ships with its scripts, a `claude-settings.json` fragment to merge into `~/.claude/settings.json`, and a per-bundle README documenting events and security notes.
 
-_No entries yet — Phase E._
+_Currently populated: 6 / 6 upstream._
+
+| Bundle | Events | Install |
+|---|---|---|
+| [dependency-license-checker](hooks/dependency-license-checker/) | `Stop` | `./install.sh install-hook dependency-license-checker` |
+| [governance-audit](hooks/governance-audit/) | `SessionStart`, `Stop`, `UserPromptSubmit` | `./install.sh install-hook governance-audit` |
+| [secrets-scanner](hooks/secrets-scanner/) | `Stop` | `./install.sh install-hook secrets-scanner` |
+| [session-auto-commit](hooks/session-auto-commit/) | `Stop` | `./install.sh install-hook session-auto-commit` |
+| [session-logger](hooks/session-logger/) | `SessionStart`, `Stop`, `UserPromptSubmit` | `./install.sh install-hook session-logger` |
+| [tool-guardian](hooks/tool-guardian/) | `PreToolUse` | `./install.sh install-hook tool-guardian` |
 
 ---
 
 ## Workflows
 
-Agentic GH Actions workflows ported from `awesome-copilot/workflows/`.
+Agentic GitHub Actions workflows ported from `awesome-copilot/workflows/`. Each entry is a markdown agent prompt paired with a `<name>.github-action.yml` runner template that invokes `anthropics/claude-code-action` on the upstream schedule.
 
-_No entries yet — Phase E._
+_Currently populated: 8 / 8 upstream._
+
+| Workflow | Schedule (cron) | Purpose |
+|---|---|---|
+| [daily-issues-report](workflows/daily-issues-report.md) | `0 9 * * 1-5` | Generates a daily summary of open issues and recent activity as a GitHub issue |
+| [ospo-contributors-report](workflows/ospo-contributors-report.md) | `3 2 1 * *` | Monthly contributor activity metrics across an organization''s repositories. |
+| [ospo-org-health](workflows/ospo-org-health.md) | `0 10 * * 1` | Comprehensive weekly health report for a GitHub organization. Surfaces stale issues/PRs, merge time analysis, contrib… |
+| [ospo-release-compliance-checker](workflows/ospo-release-compliance-checker.md) | `0 9 * * *` | Analyzes a target repository against open source release requirements and posts a detailed compliance report as an is… |
+| [ospo-stale-repos](workflows/ospo-stale-repos.md) | `3 2 1 * *` | Identifies inactive repositories in your organization and generates an archival recommendation report. |
+| [relevance-check](workflows/relevance-check.md) | `0 9 * * *` | Slash command to evaluate whether an issue or pull request is still relevant to the project |
+| [relevance-summary](workflows/relevance-summary.md) | `0 9 * * *` | Manually triggered workflow that summarizes all open issues and PRs with a /relevance-check response into a single issue |
+| [weekly-comment-sync](workflows/weekly-comment-sync.md) | `0 9 * * 1` | Weekly workflow that finds stale code comments or README snippets, makes text-only synchronization updates, and opens… |
 
 ---
 
 ## Cookbook
 
-Anthropic-SDK recipes ported from `awesome-copilot/cookbook/`.
+Translation guides for upstream `awesome-copilot/cookbook/copilot-sdk/` recipes. These are documentation-only entries per `references/conversion-patterns.md` §16 — the upstream targets the GitHub Copilot SDK and a mechanical code port would produce untested snippets. Each recipe maps the original problem to the canonical Claude Code / Anthropic SDK approach with pointers to live docs.
 
-_No entries yet — Phase E._
+_Currently populated: 7 ported + 3 skipped-with-reason / 10 upstream entries._
+
+### Translation guides
+
+| Recipe | Topic | Anthropic analog |
+|---|---|---|
+| [Accessibility Report](cookbook/accessibility-report/) | Generate WCAG accessibility reports for a web app using the Playwright MCP server. | see recipe README |
+| [Error Handling](cookbook/error-handling/) | Handle SDK errors gracefully: connection failures, timeouts, rate limits, and resource cleanup. | see recipe README |
+| [Managing Local Files](cookbook/managing-local-files/) | Organise files by metadata using AI-powered grouping strategies. | see recipe README |
+| [Multiple Sessions](cookbook/multiple-sessions/) | Manage multiple independent conversations simultaneously without state bleed. | see recipe README |
+| [Persisting Sessions](cookbook/persisting-sessions/) | Save and resume conversation sessions across restarts. | see recipe README |
+| [PR Visualization](cookbook/pr-visualization/) | Generate interactive PR age charts using the GitHub MCP server. | see recipe README |
+| [Ralph Loop](cookbook/ralph-loop/) | Build autonomous coding loops that iterate until a goal is met, with fresh context per iteration and planning/buildin… | see recipe README |
+
+### Skipped recipes
+
+| Recipe | Why skipped |
+|---|---|
+| [Community Samples](cookbook/community-samples/) | Copilot-SDK-specific; see recipe README for the Claude analog pointer |
+| [Copilot SDK Web App](cookbook/copilot-sdk-web-app/) | Copilot-SDK-specific; see recipe README for the Claude analog pointer |
+| [Node.js Agentic Issue Resolver](cookbook/nodejs-agentic-issue-resolver/) | Copilot-SDK-specific; see recipe README for the Claude analog pointer |

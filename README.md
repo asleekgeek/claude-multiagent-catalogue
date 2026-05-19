@@ -14,9 +14,9 @@ Every artefact is a markdown agent definition, `SKILL.md`, instructions file, ho
 | 📋 [Instructions](instructions/) | `instructions/` | **183 / 183** | `awesome-copilot/instructions/` |
 | 🎯 [Skills](skills/) | `skills/` | 335 / 338 | `awesome-copilot/skills/` |
 | 🔌 [Plugins](plugins/) | `plugins/` | **67 / 67** | `awesome-copilot/plugins/` |
-| 🪝 [Hooks](hooks/) | `hooks/` | 0 / 6 | `awesome-copilot/hooks/` |
-| ⚡ [Workflows](workflows/) | `workflows/` | 0 / 8 | `awesome-copilot/workflows/` |
-| 🍳 [Cookbook](cookbook/) | `cookbook/` | 0 / 3 | `awesome-copilot/cookbook/` |
+| 🪝 [Hooks](hooks/) | `hooks/` | **6 / 6** | `awesome-copilot/hooks/` |
+| ⚡ [Workflows](workflows/) | `workflows/` | **8 / 8** | `awesome-copilot/workflows/` |
+| 🍳 [Cookbook](cookbook/) | `cookbook/` | **7 / 10** (3 skipped-with-reason) | `awesome-copilot/cookbook/` |
 | 🛠️ [Conversion skill](copilot-to-claude-multiagent/) | `copilot-to-claude-multiagent/` | — | (this repo) |
 
 The conversion procedure for every bucket lives in [copilot-to-claude-multiagent/SKILL.md](copilot-to-claude-multiagent/SKILL.md).

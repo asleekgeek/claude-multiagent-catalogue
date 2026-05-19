@@ -1,0 +1,29 @@
+# Companion GitHub Actions runner for workflows/relevance-summary.md
+# Copy to .github/workflows/relevance-summary.yml in the consumer's repo and adapt
+# schedule / secrets / permissions as needed. Add ANTHROPIC_API_KEY to repo secrets.
+
+name: Relevance Summary
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # translated from upstream: "(none specified upstream)"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Claude Code agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt-file: .github/workflows-prompts/relevance-summary.md
+          allowed-tools: bash,gh
+          model: claude-sonnet-4-6
