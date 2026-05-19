@@ -6,10 +6,10 @@ Coding-standard fragments ported from the [`awesome-copilot`](https://github.com
 
 | Metric | Count |
 |---|---|
-| Ported | 0 |
-| Pending (upstream) | 183 |
+| Ported | **183** |
+| Pending (upstream) | 0 |
 
-Bulk port is **Phase D** of the marketplace mirror.
+Phase D bulk port complete. 1 of 183 ports carries a `## Claude Code Notes` section (one upstream instruction had a `fetch_webpage` reference that was swapped to `WebFetch`). All others are clean prose with frontmatter normalisation only.
 
 ## File convention
 
