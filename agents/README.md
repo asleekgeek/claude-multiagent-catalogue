@@ -42,11 +42,11 @@ model: claude-sonnet-4-6   # default; orchestrators bump to opus, formatters dro
 
 ```bash
 # from the project where you want the agent:
-~/src/claude-multiagent-catalogue/install.sh install-agent <name>
+/path/to/claude-multiagent-catalogue/install.sh install-agent <name>
 
 # or by hand:
 mkdir -p .claude/agents
-cp ~/src/claude-multiagent-catalogue/agents/<name>.md .claude/agents/
+cp /path/to/claude-multiagent-catalogue/agents/<name>.md .claude/agents/
 ```
 
 ## Attribution

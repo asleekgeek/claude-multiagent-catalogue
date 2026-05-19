@@ -36,7 +36,7 @@ Custom agents that have been created by GitHub partners
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh partners
+/path/to/claude-multiagent-catalogue/install.sh partners
 
 # verify
 ls .claude/agents/

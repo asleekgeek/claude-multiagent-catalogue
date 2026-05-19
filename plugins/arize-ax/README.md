@@ -23,7 +23,7 @@ Arize AX platform skills for LLM observability, evaluation, and optimization. In
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh arize-ax --skills
+/path/to/claude-multiagent-catalogue/install.sh arize-ax --skills
 
 # verify
 ls .claude/skills/

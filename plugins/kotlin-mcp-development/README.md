@@ -21,7 +21,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in Kotlin usi
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh kotlin-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh kotlin-mcp-development --skills
 
 # verify
 ls .claude/agents/

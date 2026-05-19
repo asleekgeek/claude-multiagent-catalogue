@@ -21,7 +21,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in TypeScript
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh typescript-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh typescript-mcp-development --skills
 
 # verify
 ls .claude/agents/

@@ -17,7 +17,7 @@ Phoenix AI observability skills for LLM application debugging, evaluation, and t
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh phoenix --skills
+/path/to/claude-multiagent-catalogue/install.sh phoenix --skills
 
 # verify
 ls .claude/skills/

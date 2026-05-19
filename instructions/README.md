@@ -44,9 +44,9 @@ There is no automatic `applyTo:` mechanism in Claude Code. Pick one of:
 ## Install one
 
 ```bash
-~/src/claude-multiagent-catalogue/install.sh install-instruction <name>
+/path/to/claude-multiagent-catalogue/install.sh install-instruction <name>
 
 # or by hand:
 mkdir -p .claude/instructions
-cp ~/src/claude-multiagent-catalogue/instructions/<name>.md .claude/instructions/
+cp /path/to/claude-multiagent-catalogue/instructions/<name>.md .claude/instructions/
 ```

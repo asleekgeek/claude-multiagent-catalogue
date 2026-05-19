@@ -80,7 +80,7 @@ Also check for a `references/` directory alongside SKILL.md.
 ```bash
 # Project-local install (recommended)
 mkdir -p .claude/skills
-cp -r ~/src/claude-multiagent-catalogue/plugins/quality-playbook/skills/quality-playbook \
+cp -r /path/to/claude-multiagent-catalogue/plugins/quality-playbook/skills/quality-playbook \
        .claude/skills/
 
 # Or clone from upstream

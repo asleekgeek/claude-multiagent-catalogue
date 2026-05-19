@@ -21,7 +21,7 @@ Tools for creation, management and research of technical spikes to reduce unknow
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh technical-spike --skills
+/path/to/claude-multiagent-catalogue/install.sh technical-spike --skills
 
 # verify
 ls .claude/agents/

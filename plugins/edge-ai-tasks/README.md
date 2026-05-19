@@ -18,7 +18,7 @@ Task Researcher and Task Planner for intermediate to expert users and large code
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh edge-ai-tasks
+/path/to/claude-multiagent-catalogue/install.sh edge-ai-tasks
 
 # verify
 ls .claude/agents/

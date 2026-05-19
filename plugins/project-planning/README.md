@@ -34,7 +34,7 @@ Tools and guidance for software project planning, feature breakdown, epic manage
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh project-planning --skills
+/path/to/claude-multiagent-catalogue/install.sh project-planning --skills
 
 # verify
 ls .claude/agents/

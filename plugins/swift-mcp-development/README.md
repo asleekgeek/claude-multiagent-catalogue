@@ -21,7 +21,7 @@ Comprehensive collection for building Model Context Protocol servers in Swift us
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh swift-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh swift-mcp-development --skills
 
 # verify
 ls .claude/agents/

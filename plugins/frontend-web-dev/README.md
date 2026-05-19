@@ -23,7 +23,7 @@ Essential prompts, instructions, and chat modes for modern frontend web developm
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh frontend-web-dev --skills
+/path/to/claude-multiagent-catalogue/install.sh frontend-web-dev --skills
 
 # verify
 ls .claude/agents/

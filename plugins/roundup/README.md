@@ -16,7 +16,7 @@ Self-configuring status briefing generator. Learns your communication style from
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh roundup --skills
+/path/to/claude-multiagent-catalogue/install.sh roundup --skills
 
 # verify
 ls .claude/skills/

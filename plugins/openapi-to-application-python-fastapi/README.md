@@ -21,7 +21,7 @@ Generate production-ready FastAPI applications from OpenAPI specifications. Incl
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh openapi-to-application-python-fastapi --skills
+/path/to/claude-multiagent-catalogue/install.sh openapi-to-application-python-fastapi --skills
 
 # verify
 ls .claude/agents/

@@ -15,7 +15,7 @@ Visual whiteboard collaboration for Copilot CLI. Opens an interactive whiteboard
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh napkin --skills
+/path/to/claude-multiagent-catalogue/install.sh napkin --skills
 
 # verify
 ls .claude/skills/

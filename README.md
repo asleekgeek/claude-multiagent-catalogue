@@ -28,20 +28,20 @@ The conversion procedure for every bucket lives in [copilot-to-claude-multiagent
 ./install.sh --list
 
 # Install a plugin's agents into the current project
-cd ~/src/my-project
-~/src/claude-multiagent-catalogue/install.sh rug-agentic-workflow
+cd ~/my-project
+/path/to/claude-multiagent-catalogue/install.sh rug-agentic-workflow
 
 # Install a plugin + its skills
-~/src/claude-multiagent-catalogue/install.sh ai-team-orchestration --skills
+/path/to/claude-multiagent-catalogue/install.sh ai-team-orchestration --skills
 
 # Install a single standalone agent (Phase B+)
-~/src/claude-multiagent-catalogue/install.sh install-agent csharp-expert
+/path/to/claude-multiagent-catalogue/install.sh install-agent csharp-expert
 
 # Install a single instruction (Phase D+)
-~/src/claude-multiagent-catalogue/install.sh install-instruction typescript
+/path/to/claude-multiagent-catalogue/install.sh install-instruction typescript
 
 # Install a hook bundle (Phase E+)
-~/src/claude-multiagent-catalogue/install.sh install-hook secrets-scanner
+/path/to/claude-multiagent-catalogue/install.sh install-hook secrets-scanner
 
 # Verify
 ls .claude/agents/
@@ -102,7 +102,7 @@ Common transformations applied across buckets: drop the Copilot `tools:` key, dr
 
 ```bash
 mkdir -p .claude/skills
-cp -r ~/src/claude-multiagent-catalogue/skills/<skill-name> .claude/skills/
+cp -r /path/to/claude-multiagent-catalogue/skills/<skill-name> .claude/skills/
 ```
 
 ## License and attribution

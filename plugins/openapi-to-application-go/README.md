@@ -21,7 +21,7 @@ Generate production-ready Go applications from OpenAPI specifications. Includes 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh openapi-to-application-go --skills
+/path/to/claude-multiagent-catalogue/install.sh openapi-to-application-go --skills
 
 # verify
 ls .claude/agents/

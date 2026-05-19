@@ -28,7 +28,7 @@ Comprehensive collection for writing tests, test automation, and test-driven dev
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh testing-automation --skills
+/path/to/claude-multiagent-catalogue/install.sh testing-automation --skills
 
 # verify
 ls .claude/agents/

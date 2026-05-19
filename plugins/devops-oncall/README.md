@@ -22,7 +22,7 @@ A focused set of prompts, instructions, and a chat mode to help triage incidents
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh devops-oncall --skills
+/path/to/claude-multiagent-catalogue/install.sh devops-oncall --skills
 
 # verify
 ls .claude/agents/

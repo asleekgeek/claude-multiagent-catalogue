@@ -28,7 +28,7 @@ Essential prompts, instructions, and chat modes for C# and .NET development incl
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh csharp-dotnet-development --skills
+/path/to/claude-multiagent-catalogue/install.sh csharp-dotnet-development --skills
 
 # verify
 ls .claude/agents/

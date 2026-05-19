@@ -21,7 +21,7 @@ Comprehensive resources for building Model Context Protocol servers using the of
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh php-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh php-mcp-development --skills
 
 # verify
 ls .claude/agents/

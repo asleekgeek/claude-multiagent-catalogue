@@ -22,7 +22,7 @@ Generate professional project documentation with draw.io architecture diagrams a
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh project-documenter --skills
+/path/to/claude-multiagent-catalogue/install.sh project-documenter --skills
 
 # verify
 ls .claude/agents/

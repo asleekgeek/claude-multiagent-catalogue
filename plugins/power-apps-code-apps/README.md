@@ -21,7 +21,7 @@ Complete toolkit for Power Apps Code Apps development including project scaffold
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh power-apps-code-apps --skills
+/path/to/claude-multiagent-catalogue/install.sh power-apps-code-apps --skills
 
 # verify
 ls .claude/agents/

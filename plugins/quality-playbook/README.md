@@ -45,19 +45,19 @@ agent loads it and passes it to each phase sub-agent via Task.
 
 ```bash
 # Navigate to your project
-cd ~/src/my-project
+cd ~/my-project
 
 # Install agents
 mkdir -p .claude/agents
-cp ~/src/claude-multiagent-catalogue/plugins/quality-playbook/agents/*.md .claude/agents/
+cp /path/to/claude-multiagent-catalogue/plugins/quality-playbook/agents/*.md .claude/agents/
 
 # Install the skill (required — orchestrator reads it for phase sub-agents)
 mkdir -p .claude/skills
-cp -r ~/src/claude-multiagent-catalogue/plugins/quality-playbook/skills/quality-playbook \
+cp -r /path/to/claude-multiagent-catalogue/plugins/quality-playbook/skills/quality-playbook \
        .claude/skills/
 
 # Or use the install script
-~/src/claude-multiagent-catalogue/install.sh quality-playbook --skills
+/path/to/claude-multiagent-catalogue/install.sh quality-playbook --skills
 
 # Verify
 ls .claude/agents/ | grep qp

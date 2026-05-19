@@ -15,7 +15,7 @@ Document analysis with inline source screenshots. When you ask Copilot to analyz
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh eyeball --skills
+/path/to/claude-multiagent-catalogue/install.sh eyeball --skills
 
 # verify
 ls .claude/skills/

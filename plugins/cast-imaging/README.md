@@ -19,7 +19,7 @@ A comprehensive collection of specialized agents for software analysis, impact a
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh cast-imaging
+/path/to/claude-multiagent-catalogue/install.sh cast-imaging
 
 # verify
 ls .claude/agents/

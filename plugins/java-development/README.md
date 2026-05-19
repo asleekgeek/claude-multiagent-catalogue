@@ -18,7 +18,7 @@ Comprehensive collection of prompts and instructions for Java development includ
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh java-development --skills
+/path/to/claude-multiagent-catalogue/install.sh java-development --skills
 
 # verify
 ls .claude/skills/

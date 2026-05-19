@@ -21,7 +21,7 @@ Complete toolkit for building Model Context Protocol servers in Ruby using the o
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh ruby-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh ruby-mcp-development --skills
 
 # verify
 ls .claude/agents/

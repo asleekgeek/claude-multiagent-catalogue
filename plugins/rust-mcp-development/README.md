@@ -21,7 +21,7 @@ Build high-performance Model Context Protocol servers in Rust using the official
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh rust-mcp-development --skills
+/path/to/claude-multiagent-catalogue/install.sh rust-mcp-development --skills
 
 # verify
 ls .claude/agents/

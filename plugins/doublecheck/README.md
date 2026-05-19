@@ -21,7 +21,7 @@ Three-layer verification pipeline for AI output. Extracts claims, finds sources,
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh doublecheck --skills
+/path/to/claude-multiagent-catalogue/install.sh doublecheck --skills
 
 # verify
 ls .claude/agents/

@@ -19,7 +19,7 @@ Give your AI agent full visibility into Power Automate cloud flows via the FlowS
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh flowstudio-power-automate --skills
+/path/to/claude-multiagent-catalogue/install.sh flowstudio-power-automate --skills
 
 # verify
 ls .claude/skills/

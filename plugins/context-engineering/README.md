@@ -23,7 +23,7 @@ Tools and techniques for maximizing GitHub Copilot effectiveness through better 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh context-engineering --skills
+/path/to/claude-multiagent-catalogue/install.sh context-engineering --skills
 
 # verify
 ls .claude/agents/

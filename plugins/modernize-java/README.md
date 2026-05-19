@@ -17,7 +17,7 @@ AI-powered Java modernization and upgrade assistant. Helps upgrade Java and Spri
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh modernize-java
+/path/to/claude-multiagent-catalogue/install.sh modernize-java
 
 # verify
 ls .claude/agents/

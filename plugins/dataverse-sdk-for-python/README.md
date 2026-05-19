@@ -18,7 +18,7 @@ Comprehensive collection for building production-ready Python integrations with 
 
 ```bash
 # from the project where you want it installed:
-~/src/claude-multiagent-catalogue/install.sh dataverse-sdk-for-python --skills
+/path/to/claude-multiagent-catalogue/install.sh dataverse-sdk-for-python --skills
 
 # verify
 ls .claude/skills/
