@@ -4,18 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-A **catalogue of multi-agent plugins and skills for Claude Code**, ported from the GitHub Copilot `awesome-copilot` ecosystem. There is no application code — every artefact is a markdown agent definition, a `SKILL.md`, or supporting reference docs. The repo's purpose is twofold:
+A **Claude Code catalogue mirroring the upstream [`awesome-copilot`](https://github.com/github/awesome-copilot) marketplace**. There is no application code — every artefact is markdown (agent definitions, `SKILL.md` files, instruction fragments, hook bundles, workflow prompts, cookbook recipes) plus the conversion skill that defines how upstream artefacts become Claude Code-native.
 
-1. Host fully-converted **plugins** (under [plugins/](plugins/)) ready to install into any project's `.claude/` directory.
-2. Document the **conversion process** itself (under [copilot-to-claude-multiagent/](copilot-to-claude-multiagent/)) as a reusable skill, so further plugins can be ported consistently.
+### Scope note: repo name is legacy
+
+The directory is called `claude-multiagent-catalogue` for historical reasons — the original conversion was scoped only to multi-agent orchestration rigs (5 of 67 upstream plugins). The current scope is the **full marketplace**: all seven upstream artefact buckets. Do not let the repo name narrow how you reason about scope.
 
 ## Common commands
 
 There is no build, test, or lint step — everything is markdown. The only executable is the installer.
 
 ```bash
-# List available plugins and what each contains
+# List everything available across all buckets
 ./install.sh --list
+
+# Bucket-specific listings
+./install.sh --list-agents
+./install.sh --list-instructions
+./install.sh --list-hooks
 
 # Install a plugin's agents into the current project's .claude/agents/
 ./install.sh <plugin-name>
@@ -23,26 +29,50 @@ There is no build, test, or lint step — everything is markdown. The only execu
 # Also install the plugin's skills into .claude/skills/
 ./install.sh <plugin-name> --skills
 
+# Install a single standalone agent / instruction / hook
+./install.sh install-agent <name>
+./install.sh install-instruction <name>
+./install.sh install-hook <name>
+
 # Help
 ./install.sh --help
 ```
 
-`install.sh` copies from [plugins/&lt;name&gt;/agents/](plugins/) and (with `--skills`) [plugins/&lt;name&gt;/skills/](plugins/) into the caller's working directory `.claude/` tree. It overwrites existing files of the same name and prints a per-file confirmation. It does **not** install from the top-level [agents/](agents/) or [skills/](skills/) directories — only from a named plugin under [plugins/](plugins/).
+`install.sh` copies from the corresponding top-level directory into the caller's working directory `.claude/` tree. It overwrites existing files of the same name and prints a per-file confirmation. Hooks copy scripts into `.claude/hooks/<bundle>/` and **print** the `claude-settings.json` fragment rather than auto-merging — hook configs execute commands on session events and silent merge is too dangerous.
 
-To verify an install: `ls .claude/agents/` (and `ls .claude/skills/` when `--skills` was passed).
+To verify an install: `ls .claude/agents/`, `ls .claude/skills/`, `ls .claude/instructions/`, `ls .claude/hooks/`.
 
 ## Repository layout
 
 ```
-plugins/<plugin-name>/        Installable plugin (agents/ and/or skills/ + README.md)
-skills/                       Standalone pool of ~330+ individual skills + STATUS.md
+agents/                       Standalone Claude Code agent files (0 / 211 upstream)
+instructions/                 Coding-standard fragments with applyTo metadata (0 / 183 upstream)
+plugins/<plugin-name>/        Installable plugins — agents/ and/or skills/ + README.md (5 / 67 upstream)
+skills/                       Standalone skill pool — ~330+ entries + STATUS.md (335 / 338 upstream)
+hooks/<bundle-name>/          Hook bundles — scripts + claude-settings.json fragment (0 / 6 upstream)
+workflows/                    Agentic GH Actions — <name>.md prompts + .github-action.yml runners (0 / 8 upstream)
+cookbook/                     Anthropic-SDK recipes (0 / 3 upstream)
 copilot-to-claude-multiagent/ The conversion skill itself (SKILL.md + references/)
-install.sh                    Installer (only reads plugins/)
-CATALOGUE.md                  Hand-maintained index of converted plugins (must be updated per port)
+install.sh                    Installer (handles every bucket above)
+CATALOGUE.md                  Hand-maintained discovery index — one section per populated bucket
 README.md                     Repo-level README (catalogue overview + quickstart)
 ```
 
-### Currently converted plugins (see [CATALOGUE.md](CATALOGUE.md))
+### Currently populated buckets
+
+| Bucket | Ported | Upstream | Phase |
+|---|---|---|---|
+| Agents | 0 | 211 | **Phase B** — next priority |
+| Instructions | 0 | 183 | Phase D |
+| Plugins | 5 | 67 | Phase C |
+| Skills | 335 | 338 | (already complete) |
+| Hooks | 0 | 6 | Phase E |
+| Workflows | 0 | 8 | Phase E |
+| Cookbook | 0 | 3 | Phase E |
+
+Phase B (agents) is the highest value-per-effort gap — see Phase A's plan note for sequencing.
+
+### Plugins currently in `plugins/`
 
 | Plugin | Pattern | Components |
 |---|---|---|
@@ -52,11 +82,15 @@ README.md                     Repo-level README (catalogue overview + quickstart
 | [structured-autonomy](plugins/structured-autonomy/) | Plan → Generate → Implement skill pipeline | skills only |
 | [quality-playbook](plugins/quality-playbook/) | 7-phase quality audit orchestrator with per-phase Task sub-agents | agents + skill |
 
-## How a new plugin gets added
+Detailed catalogue entries — agent rosters, models, orchestration patterns — live in [CATALOGUE.md](CATALOGUE.md).
 
-The full procedure lives in [copilot-to-claude-multiagent/SKILL.md](copilot-to-claude-multiagent/SKILL.md) (phases 1–4 with a quality gate). Invoke it whenever porting a Copilot plugin. Key conventions enforced by the skill:
+## How a new artefact gets ported
+
+The full procedure lives in [copilot-to-claude-multiagent/SKILL.md](copilot-to-claude-multiagent/SKILL.md) (Phase 0 dispatcher → bucket-specific conversion → output → catalogue). Invoke it whenever porting from upstream. The skill handles all seven bucket types.
 
 ### Agent file frontmatter — strict
+
+Whether the agent comes from `awesome-copilot/agents/` (standalone) or `awesome-copilot/plugins/*/agents/` (plugin-embedded), the output frontmatter is the same:
 
 ```yaml
 ---
@@ -69,7 +103,21 @@ model: claude-opus-4-6                # see model mapping below
 
 - **Drop** the Copilot `tools:` key — Claude Code agents have full tool access.
 - **Drop** the Copilot `agents:` key — express cross-agent references in body text instead.
-- Body must end with a `## Claude Code Notes` section documenting every adaptation made.
+- Standalone-agent filename `CSharpExpert.agent.md` → `csharp-expert.md` (lowercase, hyphenated, no `.agent` suffix).
+- Body ends with a `## Claude Code Notes` section documenting every adaptation made (skip if no adaptations were needed beyond filename and frontmatter normalisation).
+- First line of body is an attribution comment: `> Ported from awesome-copilot/<upstream-path>`.
+
+### Instructions file frontmatter
+
+Preserve the upstream `applyTo:` glob in frontmatter as documentation. Claude Code does not enforce it natively, but it captures the upstream intent.
+
+```yaml
+---
+applyTo: '**/*.ts,**/*.tsx'
+description: >
+  Short one-line summary.
+---
+```
 
 ### Model mapping (see [references/model-mapping.md](copilot-to-claude-multiagent/references/model-mapping.md))
 
@@ -81,20 +129,33 @@ model: claude-opus-4-6                # see model mapping below
 
 ### Body-level transformations (see [references/conversion-patterns.md](copilot-to-claude-multiagent/references/conversion-patterns.md))
 
-- `#tool:runSubagent` → `Task` tool with a self-contained prompt (parent context, task, scope, acceptance criteria, return contract).
+- `#tool:runSubagent` → `Task` tool with a self-contained prompt.
 - `#context7` → Context7 MCP note.
 - `manage_todo_list` → `TodoManager` tool.
 - VS Code UI patterns → bash equivalents or "user action required" notes.
 - GitHub Issue/PR workflows → `gh` CLI commands.
+- Hook events (`sessionStart`, `preToolCall`, …) → Claude Code hook events (`SessionStart`, `PreToolUse`, …).
 
 ### Output location and catalogue update
 
-Converted plugins land at `plugins/<plugin-name>/` with `agents/`, optional `skills/`, and a `README.md`. **Every port must also append an entry to [CATALOGUE.md](CATALOGUE.md)** describing pattern, agent roster with model assignments, and install command — `install.sh --list` and the catalogue are the only discovery surfaces.
+Converted artefacts land at:
+
+- `agents/<name>.md` for standalone agents
+- `instructions/<name>.md` for instructions
+- `plugins/<plugin-name>/` for plugins (agents/, optional skills/, optional instructions/, README.md, plugin.json)
+- `skills/<skill-name>/SKILL.md` for skills
+- `hooks/<bundle-name>/` for hook bundles
+- `workflows/<name>.md` (+ optional `<name>.github-action.yml`) for workflows
+- `cookbook/<recipe-name>/` for cookbook recipes
+
+**Every port must also update the relevant bucket's `README.md` status table** and, for plugins, append an entry to [CATALOGUE.md](CATALOGUE.md). `install.sh --list` and the catalogue are the only discovery surfaces.
 
 ## The `skills/` directory vs. plugin skills
 
-The top-level [skills/](skills/) directory holds ~330+ standalone skills lifted from the upstream marketplace. An audit in [skills/STATUS.md](skills/STATUS.md) confirms the pool is structurally Claude-Code compatible — the handful of raw-Copilot entries (`#tool:` directives, duplicate `structured-autonomy-*` skills, `runSubagent` calls) have been removed or converted. The pool is **not** orchestrated and individual skills have not been run-tested, so treat each as a copy-paste candidate rather than installable inventory. Plugin skills (curated, orchestration-aware) live under [plugins/&lt;plugin-name&gt;/skills/&lt;skill-name&gt;/SKILL.md](plugins/) and are what `install.sh --skills` copies. `install.sh` does not read the top-level pool.
+The top-level [skills/](skills/) directory holds ~330+ standalone skills lifted from the upstream marketplace. An audit in [skills/STATUS.md](skills/STATUS.md) confirms the pool is structurally Claude-Code compatible — the handful of raw-Copilot entries (`#tool:` directives, duplicate `structured-autonomy-*` skills, `runSubagent` calls) have been removed or converted. The pool is **not** orchestrated and individual skills have not been run-tested, so treat each as a copy-paste candidate rather than installable inventory. Plugin skills (curated, orchestration-aware) live under [plugins/&lt;plugin-name&gt;/skills/&lt;skill-name&gt;/SKILL.md](plugins/) and are what `install.sh <plugin> --skills` copies. The top-level skill pool is reachable through the installer via `install-skill <name>` if needed, but `install.sh --list` does not enumerate it.
 
 ## Git conventions
 
 Commit messages observed: `feat: <summary>`, `Update <thing>`. The user's global instruction is to **omit the `Co-Authored-By: Claude` trailer** from commits in this repo.
+
+Branch naming for marketplace mirror work: `feat/full-marketplace-mirror-phase-<letter>`.
