@@ -1,11 +1,16 @@
-# Plugin Catalogue
+# Catalogue
 
-Detailed entries for every converted plugin. Each entry covers the orchestration
-pattern, agent roster with model assignments, and install notes.
+Discovery index across every populated bucket in this marketplace mirror. One section per bucket; entries appear here only after their conversion is complete and committed.
+
+Empty buckets are listed in [README.md](README.md) with `0 / <n> upstream` counts but no entries here.
 
 ---
 
-## rug-agentic-workflow
+## Plugins
+
+Detailed entries for every converted plugin — orchestration pattern, agent roster with model assignments, and install notes.
+
+### rug-agentic-workflow
 
 | Field | Value |
 |-------|-------|
@@ -13,18 +18,13 @@ pattern, agent roster with model assignments, and install notes.
 | **Pattern** | Orchestrator + Subagents (RUG — Repeat Until Good) |
 | **License** | MIT |
 
-### What it does
+#### What it does
 
-A three-agent delivery rig with hard separation between orchestration, implementation,
-and verification. The orchestrator never writes code — it decomposes, delegates via the
-`Task` tool, validates with a separate QA agent, and loops until every acceptance
-criterion independently passes.
+A three-agent delivery rig with hard separation between orchestration, implementation, and verification. The orchestrator never writes code — it decomposes, delegates via the `Task` tool, validates with a separate QA agent, and loops until every acceptance criterion independently passes.
 
-Best suited for: complex feature work, refactoring tasks, anything where "it probably
-works" isn't good enough and you want a validation gate that didn't write the code it's
-checking.
+Best suited for: complex feature work, refactoring tasks, anything where "it probably works" isn't good enough and you want a validation gate that didn't write the code it's checking.
 
-### Agent Roster
+#### Agent Roster
 
 | Agent | File | Model | Role |
 |-------|------|-------|------|
@@ -32,7 +32,7 @@ checking.
 | SWE Subagent | `agents/rug-swe-subagent.md` | `claude-opus-4-6` | Senior engineer: feature dev, bug fixes, refactoring, tests. Fresh context per task. |
 | QA Subagent | `agents/rug-qa-subagent.md` | `claude-sonnet-4-6` | Adversarial tester: independent validation, edge cases, PASS/FAIL sign-off. Never the same agent that wrote the code. |
 
-### Orchestration Flow
+#### Orchestration Flow
 
 ```
 User request
@@ -46,7 +46,7 @@ User request
               └─ All pass → return to user
 ```
 
-### Install
+#### Install
 
 ```bash
 install.sh rug-agentic-workflow
@@ -54,7 +54,7 @@ install.sh rug-agentic-workflow
 
 ---
 
-## ai-team-orchestration
+### ai-team-orchestration
 
 | Field | Value |
 |-------|-------|
@@ -62,18 +62,13 @@ install.sh rug-agentic-workflow
 | **Pattern** | Producer + parallel Dev/QA teams + sprint lifecycle |
 | **License** | MIT |
 
-### What it does
+#### What it does
 
-Sprint-driven multi-agent workflow with named roles (Remy the Producer, Nova/Sage/Milo
-the dev team, Ivy the QA). The human acts as the message bus between parallel chat
-sessions — each team runs in its own Claude Code instance. Includes `PROJECT_BRIEF.md`
-as the cross-session source of truth and a full context recovery protocol for when
-context windows overflow mid-sprint.
+Sprint-driven multi-agent workflow with named roles (Remy the Producer, Nova/Sage/Milo the dev team, Ivy the QA). The human acts as the message bus between parallel chat sessions — each team runs in its own Claude Code instance. Includes `PROJECT_BRIEF.md` as the cross-session source of truth and a full context recovery protocol for when context windows overflow mid-sprint.
 
-Best suited for: greenfield projects, multi-sprint delivery, anything that benefits
-from persistent sprint documentation and named agent personalities.
+Best suited for: greenfield projects, multi-sprint delivery, anything that benefits from persistent sprint documentation and named agent personalities.
 
-### Agent Roster
+#### Agent Roster
 
 | Agent | File | Model | Role |
 |-------|------|-------|------|
@@ -81,13 +76,13 @@ from persistent sprint documentation and named agent personalities.
 | Dev Team (Nova/Sage/Milo) | `agents/ai-team-dev.md` | `claude-opus-4-6` | Full-stack implementation: frontend (Nova), backend (Sage), visual (Milo). |
 | QA (Ivy) | `agents/ai-team-qa.md` | `claude-sonnet-4-6` | Playtesting, E2E tests, bug filing, sprint sign-off. |
 
-### Skills
+#### Skills
 
 | Skill | Purpose |
 |-------|---------|
 | `ai-team-orchestration` | Bootstraps the team, documents chat architecture, sprint templates |
 
-### Install
+#### Install
 
 ```bash
 install.sh ai-team-orchestration --skills
@@ -95,7 +90,7 @@ install.sh ai-team-orchestration --skills
 
 ---
 
-## software-engineering-team
+### software-engineering-team
 
 | Field | Value |
 |-------|-------|
@@ -103,17 +98,13 @@ install.sh ai-team-orchestration --skills
 | **Pattern** | 7 SDLC specialist reviewers |
 | **License** | MIT |
 
-### What it does
+#### What it does
 
-Seven specialist agents covering the full software development lifecycle — not an
-orchestrated pipeline but a reviewer pool. Invoke individual agents for focused
-review passes: architecture decisions, security audits, CI/CD debugging, UX critique,
-responsible AI checks, technical writing, and product management advisory.
+Seven specialist agents covering the full software development lifecycle — not an orchestrated pipeline but a reviewer pool. Invoke individual agents for focused review passes: architecture decisions, security audits, CI/CD debugging, UX critique, responsible AI checks, technical writing, and product management advisory.
 
-Best suited for: code review augmentation, pre-PR specialist checks, architectural
-decision validation.
+Best suited for: code review augmentation, pre-PR specialist checks, architectural decision validation.
 
-### Agent Roster
+#### Agent Roster
 
 | Agent | File | Model | Role |
 |-------|------|-------|------|
@@ -125,7 +116,7 @@ decision validation.
 | UX/UI Designer | `agents/se-ux-ui-designer.md` | `claude-sonnet-4-6` | UX critique, accessibility, design system |
 | Responsible AI | `agents/se-responsible-ai-code.md` | `claude-opus-4-6` | AI ethics, bias checks, compliance |
 
-### Install
+#### Install
 
 ```bash
 install.sh software-engineering-team
@@ -133,7 +124,7 @@ install.sh software-engineering-team
 
 ---
 
-## structured-autonomy
+### structured-autonomy
 
 | Field | Value |
 |-------|-------|
@@ -141,18 +132,13 @@ install.sh software-engineering-team
 | **Pattern** | Plan → Generate → Implement pipeline (skills only) |
 | **License** | MIT |
 
-### What it does
+#### What it does
 
-A three-skill pipeline for structured feature delivery. Planning skill researches
-the codebase and produces a `plan.md` with commit-level breakdown. Generator skill
-reads the plan and produces a complete `implementation.md` with copy-paste-ready code
-blocks. Implementation skill walks the agent step by step through the commits with
-explicit stop-and-verify checkpoints.
+A three-skill pipeline for structured feature delivery. Planning skill researches the codebase and produces a `plan.md` with commit-level breakdown. Generator skill reads the plan and produces a complete `implementation.md` with copy-paste-ready code blocks. Implementation skill walks the agent step by step through the commits with explicit stop-and-verify checkpoints.
 
-Best suited for: solo agentic work where you want structured, checkpointed delivery
-rather than a big-bang implementation.
+Best suited for: solo agentic work where you want structured, checkpointed delivery rather than a big-bang implementation.
 
-### Skills
+#### Skills
 
 | Skill | File | Purpose |
 |-------|------|---------|
@@ -160,7 +146,7 @@ rather than a big-bang implementation.
 | Generate | `skills/structured-autonomy-generate/SKILL.md` | Produce complete implementation guide |
 | Implement | `skills/structured-autonomy-implement/SKILL.md` | Step-by-step execution with checkpoints |
 
-### Install
+#### Install
 
 ```bash
 install.sh structured-autonomy --skills
@@ -168,7 +154,7 @@ install.sh structured-autonomy --skills
 
 ---
 
-## quality-playbook
+### quality-playbook
 
 | Field | Value |
 |-------|-------|
@@ -176,33 +162,71 @@ install.sh structured-autonomy --skills
 | **Pattern** | Orchestrator + per-phase Task sub-agents (7-phase quality engineering audit) |
 | **License** | See `plugins/quality-playbook/skills/quality-playbook/LICENSE.txt` |
 
-### What it does
+#### What it does
 
-A seven-phase quality engineering audit that finds the ~35% of real defects structural code
-review alone cannot catch. The orchestrator never executes phase logic itself — it spawns
-one Task sub-agent per phase, each with a fresh context window, and verifies output files
-between phases. The playbook explores the project first (domain, architecture, specs,
-failure history) before generating requirements and tests — exploration findings drive
-bug discovery.
+A seven-phase quality engineering audit that finds the ~35% of real defects structural code review alone cannot catch. The orchestrator never executes phase logic itself — it spawns one Task sub-agent per phase, each with a fresh context window, and verifies output files between phases. The playbook explores the project first (domain, architecture, specs, failure history) before generating requirements and tests — exploration findings drive bug discovery.
 
-Best suited for: codebases that need a rigorous quality pass before release, or any place
-"all the unit tests pass" is not the same as "the code is correct".
+Best suited for: codebases that need a rigorous quality pass before release, or any place "all the unit tests pass" is not the same as "the code is correct".
 
-### Agent Roster
+#### Agent Roster
 
 | Agent | File | Model | Role |
 |-------|------|-------|------|
 | QP Orchestrator | `agents/qp-orchestrator.md` | `claude-opus-4-6` | Spawns one Task sub-agent per phase, verifies output files, never does phase logic itself |
 | QP Calibration Orchestrator | `agents/qp-calibration-orchestrator.md` | `claude-opus-4-6` | Multi-session calibration cycle across multiple benchmarks (for tuning the playbook to a codebase type) |
 
-### Skill
+#### Skill
 
 | Skill | File | Purpose |
 |-------|------|---------|
 | Quality Playbook | `skills/quality-playbook/SKILL.md` | Phase execution logic, references, phase prompts, `quality_gate.py` helper. Required. |
 
-### Install
+#### Install
 
 ```bash
 install.sh quality-playbook --skills
 ```
+
+---
+
+## Agents
+
+Standalone agent definitions ported from `awesome-copilot/agents/`.
+
+_No entries yet — Phase B is the next priority._
+
+When entries arrive, this section will list each agent as: `<name> · <model> · <one-line role>` with a link to `agents/<name>.md`.
+
+---
+
+## Instructions
+
+Coding-standard fragments ported from `awesome-copilot/instructions/`.
+
+_No entries yet — Phase D._
+
+Entries will be grouped by topic family (languages, frameworks, ops, AI/ML, etc.) and link to `instructions/<name>.md`.
+
+---
+
+## Hooks
+
+Hook bundles ported from `awesome-copilot/hooks/`.
+
+_No entries yet — Phase E._
+
+---
+
+## Workflows
+
+Agentic GH Actions workflows ported from `awesome-copilot/workflows/`.
+
+_No entries yet — Phase E._
+
+---
+
+## Cookbook
+
+Anthropic-SDK recipes ported from `awesome-copilot/cookbook/`.
+
+_No entries yet — Phase E._
