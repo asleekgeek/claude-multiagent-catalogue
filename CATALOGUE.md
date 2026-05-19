@@ -165,3 +165,44 @@ rather than a big-bang implementation.
 ```bash
 install.sh structured-autonomy --skills
 ```
+
+---
+
+## quality-playbook
+
+| Field | Value |
+|-------|-------|
+| **Original** | `quality-playbook` v1.5.6 by Andrew Stellman (https://github.com/andrewstellman/quality-playbook) |
+| **Pattern** | Orchestrator + per-phase Task sub-agents (7-phase quality engineering audit) |
+| **License** | See `plugins/quality-playbook/skills/quality-playbook/LICENSE.txt` |
+
+### What it does
+
+A seven-phase quality engineering audit that finds the ~35% of real defects structural code
+review alone cannot catch. The orchestrator never executes phase logic itself — it spawns
+one Task sub-agent per phase, each with a fresh context window, and verifies output files
+between phases. The playbook explores the project first (domain, architecture, specs,
+failure history) before generating requirements and tests — exploration findings drive
+bug discovery.
+
+Best suited for: codebases that need a rigorous quality pass before release, or any place
+"all the unit tests pass" is not the same as "the code is correct".
+
+### Agent Roster
+
+| Agent | File | Model | Role |
+|-------|------|-------|------|
+| QP Orchestrator | `agents/qp-orchestrator.md` | `claude-opus-4-6` | Spawns one Task sub-agent per phase, verifies output files, never does phase logic itself |
+| QP Calibration Orchestrator | `agents/qp-calibration-orchestrator.md` | `claude-opus-4-6` | Multi-session calibration cycle across multiple benchmarks (for tuning the playbook to a codebase type) |
+
+### Skill
+
+| Skill | File | Purpose |
+|-------|------|---------|
+| Quality Playbook | `skills/quality-playbook/SKILL.md` | Phase execution logic, references, phase prompts, `quality_gate.py` helper. Required. |
+
+### Install
+
+```bash
+install.sh quality-playbook --skills
+```

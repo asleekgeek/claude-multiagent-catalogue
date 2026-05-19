@@ -1,143 +1,78 @@
-# Quality Playbook — Claude Code Port
+# Claude Multiagent Catalogue
 
-> Ported from GitHub Copilot plugin `quality-playbook` v1.5.6
-> Original author: Andrew Stellman | https://github.com/andrewstellman/quality-playbook
-> License: See skills/quality-playbook/LICENSE.txt
-> Converted: 2026-05-19
+A curated catalogue of multi-agent plugins and skills for Claude Code, ported from the GitHub Copilot [`awesome-copilot`](https://github.com/github/awesome-copilot) ecosystem. Every artefact is a markdown agent definition or `SKILL.md` — no application code. The repo provides three things:
 
-## What it does
+1. **Installable plugins** ([plugins/](plugins/)) — full multi-agent rigs and skill pipelines, ready to drop into any project's `.claude/` directory.
+2. **A skill pool** ([skills/](skills/)) — 330+ standalone skills sourced from upstream, audited for Claude Code compatibility (see [skills/STATUS.md](skills/STATUS.md)).
+3. **A documented porting process** ([copilot-to-claude-multiagent/](copilot-to-claude-multiagent/)) — the conversion skill that defines how Copilot artefacts become Claude Code artefacts. Reusable for any future port.
 
-A seven-phase quality engineering system that finds the **35% of real defects that
-structural code review alone cannot catch**. Works on any language and any codebase.
-
-Unlike test stub generators that mechanically scan source code, the playbook explores
-the project first — understanding domain, architecture, specs, and failure history —
-then generates a quality system grounded in what it finds.
-
-**Phase sequence:**
-
-```
-Phase 1: Explore      → EXPLORATION.md (domain knowledge, risk analysis)
-Phase 2: Generate     → Requirements, functional tests, review protocol
-Phase 3: Code Review  → Three-pass review, regression tests, patches
-Phase 4: Spec Audit   → Council of Three (3 independent AI auditors)
-Phase 5: Reconcile    → TDD red-green cycle, completeness report
-Phase 6: Verify       → Self-check benchmarks, consistency validation
-Phase 7: Present      → Interactive: drill down, iterate, improve
-```
-
-The critical insight: **exploration findings → requirements → bug discovery**.
-A shallow Phase 1 produces abstract requirements. Abstract requirements miss bugs.
-
-## Agent Roster
-
-| Agent | File | Model | Role |
-|-------|------|-------|------|
-| **QP Orchestrator** | `agents/qp-orchestrator.md` | `claude-opus-4-6` | Spawns one Task sub-agent per phase, verifies output files, never does phase logic itself |
-| **QP Calibration Orchestrator** | `agents/qp-calibration-orchestrator.md` | `claude-opus-4-6` | Multi-session calibration cycle driver across multiple benchmarks — for tuning the playbook to a specific codebase type |
-
-## Skill
-
-The phase-execution logic lives in `skills/quality-playbook/SKILL.md`. The orchestrator
-agent loads it and passes it to each phase sub-agent via Task.
-
-## Installation
+## Quickstart
 
 ```bash
-# Navigate to your project
+# See what's available
+./install.sh --list
+
+# Install a plugin's agents into the current project
 cd ~/src/my-project
+~/src/claude-multiagent-catalogue/install.sh rug-agentic-workflow
 
-# Install agents
-mkdir -p .claude/agents
-cp ~/src/claude-multiagent-catalogue/plugins/quality-playbook/agents/*.md .claude/agents/
-
-# Install the skill (required — orchestrator reads it for phase sub-agents)
-mkdir -p .claude/skills
-cp -r ~/src/claude-multiagent-catalogue/plugins/quality-playbook/skills/quality-playbook \
-       .claude/skills/
-
-# Or use the install script
-~/src/claude-multiagent-catalogue/install.sh quality-playbook --skills
+# Install agents + the plugin's skills
+~/src/claude-multiagent-catalogue/install.sh ai-team-orchestration --skills
 
 # Verify
-ls .claude/agents/ | grep qp
-ls .claude/skills/quality-playbook/
+ls .claude/agents/
+ls .claude/skills/
 ```
 
-## Usage
+Agents land in `.claude/agents/`; skills land in `.claude/skills/`. Claude Code discovers both automatically the next time it starts in the project.
 
-From a Claude Code session in your project directory:
+## Plugins
 
-```
-Run the quality playbook on this codebase.
-```
+| Plugin | Pattern | Components |
+|---|---|---|
+| [rug-agentic-workflow](plugins/rug-agentic-workflow/) | Orchestrator + SWE + QA subagents via the `Task` tool (RUG — Repeat Until Good) | agents |
+| [ai-team-orchestration](plugins/ai-team-orchestration/) | Producer / Dev / QA across parallel Claude Code sessions, human as message bus | agents + skill |
+| [software-engineering-team](plugins/software-engineering-team/) | Pool of 7 SDLC reviewer specialists (architect, security, devops, PM, tech writer, UX, responsible-AI) | agents |
+| [structured-autonomy](plugins/structured-autonomy/) | Plan → Generate → Implement skill pipeline with checkpoints between commits | skills |
+| [quality-playbook](plugins/quality-playbook/) | 7-phase quality engineering audit; orchestrator spawns one Task sub-agent per phase | agents + skill |
 
-Or target a specific directory:
+Full entries — orchestration flow, agent rosters with model assignments, install notes — live in [CATALOGUE.md](CATALOGUE.md).
 
-```
-@qp-orchestrator — run the quality playbook on src/payments/
-```
-
-For phase-by-phase execution (default — pauses between phases for review):
-
-```
-Start the quality playbook. Run phase by phase.
-```
-
-For a full automated run:
+## Repository layout
 
 ```
-@qp-orchestrator — run the full playbook, all phases, on this repo.
+plugins/<plugin-name>/        Installable plugin (agents/ and/or skills/ + README.md)
+skills/                       Standalone skill pool — see skills/STATUS.md
+copilot-to-claude-multiagent/ The conversion skill (SKILL.md + references/)
+install.sh                    Installer (reads plugins/ only)
+CATALOGUE.md                  Discovery index — one entry per converted plugin
+CLAUDE.md                     Repo-level instructions for Claude Code sessions
 ```
 
-## Calibration (advanced)
+## Adding a new plugin
 
-The calibration orchestrator tunes the playbook configuration for your codebase type
-by running it against multiple benchmarks and applying lever adjustments:
+The full procedure is in [copilot-to-claude-multiagent/SKILL.md](copilot-to-claude-multiagent/SKILL.md) (phases 1–4 + a quality gate). In short:
 
-```
-@qp-calibration-orchestrator — start a calibration cycle on these benchmarks:
-- src/payments/
-- src/auth/
-- src/api/
-```
+1. **Discover and classify** the upstream Copilot plugin (agents-only / skills-only / hybrid / external).
+2. **Convert** following the reference files in [copilot-to-claude-multiagent/references/](copilot-to-claude-multiagent/references/) — drop the Copilot `tools:` and `agents:` frontmatter keys, map the model to a Claude tier (`claude-opus-4-6` / `claude-sonnet-4-6` / `claude-haiku-4-5-20251001`), rewrite `runSubagent` → `Task`, `#context7` → Context7 MCP, VS Code UI → bash equivalents.
+3. **Output** under `plugins/<plugin-name>/` with `agents/`, optional `skills/`, and a per-plugin `README.md`.
+4. **Catalogue** — append an entry to [CATALOGUE.md](CATALOGUE.md). The installer lists plugins from disk but new arrivals are otherwise undiscoverable.
 
-Full calibration takes ~4 hours for 8 benchmarks. The orchestrator spans multiple
-Claude Code sessions — if it's interrupted, restart and it resumes from
-`run_state.jsonl`.
+[CLAUDE.md](CLAUDE.md) documents the strict frontmatter rules a converter must obey.
 
-## External dependency for calibration
+## Skill pool
 
-The calibration cycle uses `bin/run_playbook.py` from the upstream repo. If you need
-it:
+[skills/](skills/) is a copy-paste surface, not part of the installer. See [skills/STATUS.md](skills/STATUS.md) for the adaptation audit. To use one:
 
 ```bash
-git clone https://github.com/andrewstellman/quality-playbook /tmp/qpb
-cp -r /tmp/qpb/bin ./bin
-cp -r /tmp/qpb/phase_prompts ./phase_prompts
-cp -r /tmp/qpb/references ./references
+mkdir -p .claude/skills
+cp -r ~/src/claude-multiagent-catalogue/skills/<skill-name> .claude/skills/
 ```
 
-The quality audit (phases 1-6) works without the runner. Only calibration needs it.
+## License and attribution
 
-## MCP Dependencies
+Each plugin and skill retains its upstream license — see the per-plugin `README.md` and any `LICENSE.txt` shipped alongside the skill. Where a port involved non-trivial adaptation, the file's `## Claude Code Notes` section documents what was changed and why.
 
-None. Uses Claude Code's built-in Task tool, bash, and file tools.
+## Issues and contributions
 
-## Claude Code Notes
-
-**What's different from the Copilot version:**
-
-The `quality-playbook-claude.agent.md` file in the upstream repo was already written
-explicitly for Claude Code — the author documented the exact failure patterns from
-production use (the "casbin run"). The adaptation here is therefore minimal:
-
-- `tools` frontmatter dropped (not applicable in Claude Code agent format)
-- `model: inherit` → `model: claude-opus-4-6`
-- "Agent tool" → "Task tool" (direct semantic equivalent)
-- Skill path lookup updated to Claude Code's `.claude/skills/` convention
-- `calibration_orchestrator.md` (a raw prompt template) converted to a proper agent
-  definition with Claude Code-specific guidance on Task vs bash subprocess selection
-
-All anti-rationalization guards, phase logic, and the casbin failure documentation are
-preserved verbatim. This is intentional — the original is excellent engineering.
+Bug reports and contribution proposals: see the templates in [.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE/).
