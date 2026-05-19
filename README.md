@@ -10,7 +10,7 @@ Every artefact is a markdown agent definition, `SKILL.md`, instructions file, ho
 
 | Bucket | Path | Status | Upstream |
 |---|---|---|---|
-| 🤖 [Agents](agents/) | `agents/` | 0 / 211 | `awesome-copilot/agents/` |
+| 🤖 [Agents](agents/) | `agents/` | **211 / 211** | `awesome-copilot/agents/` |
 | 📋 [Instructions](instructions/) | `instructions/` | 0 / 183 | `awesome-copilot/instructions/` |
 | 🎯 [Skills](skills/) | `skills/` | 335 / 338 | `awesome-copilot/skills/` |
 | 🔌 [Plugins](plugins/) | `plugins/` | 5 / 67 | `awesome-copilot/plugins/` |

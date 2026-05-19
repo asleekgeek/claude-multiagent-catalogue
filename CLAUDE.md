@@ -62,15 +62,13 @@ README.md                     Repo-level README (catalogue overview + quickstart
 
 | Bucket | Ported | Upstream | Phase |
 |---|---|---|---|
-| Agents | 0 | 211 | **Phase B** — next priority |
-| Instructions | 0 | 183 | Phase D |
+| Agents | **211** | 211 | Phase B (complete) |
+| Instructions | 0 | 183 | **Phase D** — next priority |
 | Plugins | 5 | 67 | Phase C |
 | Skills | 335 | 338 | (already complete) |
 | Hooks | 0 | 6 | Phase E |
 | Workflows | 0 | 8 | Phase E |
 | Cookbook | 0 | 3 | Phase E |
-
-Phase B (agents) is the highest value-per-effort gap — see Phase A's plan note for sequencing.
 
 ### Plugins currently in `plugins/`
 
